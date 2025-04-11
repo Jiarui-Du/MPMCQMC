@@ -6,7 +6,7 @@ modelnumber = 1; % different number for different model
 % 1: Linear_boston
 % 2: Probit_australian
 % 3: logistic_pima
-modelname = char(allmodel(modelnumber));
+modelname = choosemodel(modelnumber);
 
 % load data and model
 filename = ['./data/',modelname,'.mat'];
@@ -18,7 +18,7 @@ load(filename)
 filename = ['./result/',modelname,'-diffL-pilot.mat'];
 load(filename)
 
-%% figure
+% figure
 m = size(resultpmse,1);
 result_mse = [resultMHmse,resultLapISmse,resultODISmse,resultindmse,resultpmse];
 result_rmse = sqrt(result_mse);
